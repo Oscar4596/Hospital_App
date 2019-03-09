@@ -4,11 +4,11 @@ import { SwitchNavigator } from 'react-navigation'
 import { createStackNavigator, createSwitchNavigator, createAppContainer } from 'react-navigation';
 
 // import the different screens
-import Loading from './Loading'
-import SignUp from './SignUp'
-import Login from './Login'
-import Main from './Main'
-import Consultar from './ConsultarCitas'
+import Loading from './application/Loading'
+import SignUp from './application/SignUp'
+import Login from './application/Login'
+import Main from './application/Main'
+import Consultar from './application/ConsultarCitas'
 
 // create our app's navigation stack
 
