@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "518229546780",
+    "firebase_url": "https://proyjorge1.firebaseio.com",
+    "project_id": "proyjorge1",
+    "storage_bucket": "proyjorge1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:518229546780:android:849a04438e9961f7",
+        "android_client_info": {
+          "package_name": "com.jorge.proyectohospital"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "518229546780-co35a7vv47m9a738p94eijafm9qc6qr0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBITKW7LoE0_HFWG5u4_pcrChnpQEHB3jo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
