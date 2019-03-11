@@ -59,6 +59,9 @@ A basic react native app with [`react-native-firebase`](https://github.com/inver
 - 5.3) Now, link all the native dependencies with
 `react-native link react-native-gesture-handler`
 
+#### 6) Useful commands!
 
+- 6.1) `adb shell input text "RR"` Recarga la aplicación desde el command line sin la necesidad de hacerlo desde el dispositivo
+- 6.2) `react-native log-android` Muestra logs de la app en consola
 
 
