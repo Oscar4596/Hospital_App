@@ -48,16 +48,16 @@ A basic react native app with [`react-native-firebase`](https://github.com/inver
 - 4.2) **[iOS]** Build and run the iOS app, run `npm run ios` or `yarn run ios` from the root of your project. The first build will take some time. This will automatically start up a simulator also for you on a successful build if one wasn't already started.
 - 4.3) **[Android]** If you haven't already got an android device attached/emulator running then you'll need to get one running (make sure the emulator is with Google Play / APIs). When ready run `npm run android` or `yarn run android` from the root of your project.
 
-If all has gone well you'll see an initial screen like the one below.
-
-## Screenshots  
-![preview](https://i.imgur.com/4lG4HuS.png)
+[//]: # (If all has gone well you'll see an initial screen like the one below.)
+[//]: # (## Screenshots ![preview](https://i.imgur.com/4lG4HuS.png))
 
 #### 5) Install React Navigation in order to use the navigation feature.
 
-- 5.1) With `npm`install React Navigation running `npm install --save react-navigation``
-- 5.2) Just in case, install react native gesture handler running the following on the command line: `npm install --save react-native-gesture-handler`
-- 5.3) Now, link all the native dependencies: `react-native link react-native-gesture-handler`
+- 5.1) With `npm`install React Navigation running `npm install --save react-navigation`
+- 5.2) Just in case, install react native gesture handler running the following on the command line:
+`npm install --save react-native-gesture-handler`
+- 5.3) Now, link all the native dependencies with
+`react-native link react-native-gesture-handler`
 
 
 
