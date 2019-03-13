@@ -5,7 +5,7 @@ import Loading from './Loading'
 
 export default class Main extends React.Component {
 
-    state = { currentUser: null, doc: '' }
+    state = { currentUser: null, doc: '', cita:'', consul: '', fecha:'', prof: '' }
 
     static navigationOptions = {
         title: 'Welcome',
@@ -41,11 +41,31 @@ export default class Main extends React.Component {
                     doc: value.Documento
                 });
 
-                console.log(this.state.doc)
+                //console.log(this.state.doc)
 
         })
         
     }
+
+    getCita () {
+        this.getId();
+        firebase.database().ref('Citas/'+this.state.doc).once('value')
+        .then((snapshot) => {
+
+            var value = snapshot.val()
+            
+            this.setState({ 
+                consul: value.Consultorio,
+                fecha: value.FechaHora,
+                prof: value.Profesional
+
+            });
+
+            console.log(this.state.consul+" - "+this.state.fecha+" - "+ this.state.prof)
+
+    })
+    }
+
     /*export getCitas() {
         var ref = firebase.database.ref("Citas/");
         var query = ref.child(currentUser.uid).once()
@@ -70,8 +90,12 @@ export default class Main extends React.Component {
                 <Text></Text>
                 <Button title="Ver Documento" onPress={
                     //user => this.props.navigation.navigate('Consultar')
-                    () => this.getId()
+                    () => this.getCita()
                 } />
+                <Text></Text>
+                <Text>Consultorio: {this.state.consul}</Text>
+                <Text>Doctor: {this.state.prof}</Text>
+                <Text>FechaHora: {this.state.fecha}</Text>
                 <Text></Text>
                 <Button title="Cerrar Sesion" onPress={() => this.singOutUser()} />
             </View>

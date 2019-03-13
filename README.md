@@ -63,5 +63,4 @@ A basic react native app with [`react-native-firebase`](https://github.com/inver
 
 - 6.1) `adb shell input text "RR"` Recarga la aplicación desde el command line sin la necesidad de hacerlo desde el dispositivo
 - 6.2) `react-native log-android` Muestra logs de la app en consola
-
-
+- 6.3) `adb devices` Inicia el daemon de adb para ver dispositivos conectados y los lista.
