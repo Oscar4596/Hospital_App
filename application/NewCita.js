@@ -1,12 +1,12 @@
 import React from 'react'
-import { StyleSheet, Platform, Image, Text, View, Button } from 'react-native'
+import { StyleSheet, Platform, Image, Text, TextInput, View, Button } from 'react-native'
 import firebase from 'react-native-firebase'
 import Loading from './Loading'
+import { Dropdown } from 'react-native-material-dropdown';
 
+export default class NewCita extends React.Component {
 
-export default class Main extends React.Component {
-
-    state = { currentUser: null, doc: '', cita:'', consul: '', fecha:'', prof: '' }
+    state = { currentUser: null, esp: ''}
 
     static navigationOptions = {
         title: 'Welcome',
@@ -23,12 +23,6 @@ export default class Main extends React.Component {
         } catch (e) {
             console.log(e);
         }
-    }
-
-    readUserData() {
-        firebase.database().ref('Citas/').once('value', function (snapshot) {
-            console.log(snapshot.val())
-        });
     }
 
     getId () {
@@ -72,33 +66,41 @@ export default class Main extends React.Component {
         var query = ref.child(currentUser.uid).once()
     }*/
 
-
+    onChangeText(text) {
+        ['esp']
+          .map((name) => ({ name, ref: this[name] }))
+          .filter(({ ref }) => ref && ref.isFocused())
+          .forEach(({ name, ref }) => {
+            this.setState({ [name]: text });
+          });
+  }
 
 
     render() {
         const { currentUser } = this.state
         const {navigate} = this.props.navigation;
+        let data = [{
+            value: 'Odontologia',
+          }, {
+            value: 'Medicina General',
+          }, {
+            value: 'Ortopedia',
+          }];
         return (
             <View style={styles.container}>
                 <Text>
                     Hi  {currentUser && currentUser.email}!
-        </Text>
+                </Text>
                 <Text></Text>
-                <Button title="Solicitar cita" onPress={
-                    user => this.props.navigation.navigate('NewCita')
-                    //() => this.readUserData()
-                } />
-                <Text></Text>
-                <Button title="Ver Documento" onPress={
+                <Dropdown 
+                    label='Especialidad'
+                    data={data}
+                    onChangeText={this.setState({esp})}
+                />
+                <Button title="Ver Estado" onPress={
                     //user => this.props.navigation.navigate('Consultar')
-                    () => this.getCita()
-                } />
-                <Text></Text>
-                <Text>Consultorio: {this.state.consul}</Text>
-                <Text>Doctor: {this.state.prof}</Text>
-                <Text>FechaHora: {this.state.fecha}</Text>
-                <Text></Text>
-                <Button title="Cerrar Sesion" onPress={() => this.singOutUser()} />
+                    () => this.getEstado()
+                }/>
             </View>
         )
     }
@@ -109,6 +111,13 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
-        alignItems: 'center'
-    }
+        borderRadius: 4
+    },
+    textInput: {
+        height: 40,
+        width: '90%',
+        borderColor: 'gray',
+        borderWidth: 1,
+        marginTop: 8
+      }
 })

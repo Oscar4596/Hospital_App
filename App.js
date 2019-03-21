@@ -9,6 +9,7 @@ import SignUp from './application/SignUp'
 import Login from './application/Login'
 import Main from './application/Main'
 import Consultar from './application/ConsultarCitas'
+import NewCita from './application/NewCita'
 
 // create our app's navigation stack
 
@@ -18,7 +19,8 @@ export default createAppContainer(createSwitchNavigator(
     SignUp,
     Login,
     Main,
-    Consultar
+    Consultar,
+    NewCita
   },
   {
     initialRouteName: 'Loading',
